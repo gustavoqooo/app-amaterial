@@ -1,0 +1,22 @@
+<mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>AUTENTICACIÓN</mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content>
+        <div class="form">
+            <mat-form-field>
+                <mat-label>Ingrese su Usuario</mat-label>
+                <input matInput type="text"  >
+              </mat-form-field>
+             <mat-form-field >
+                <mat-label>Ingrese su password</mat-label>
+                <input matInput type="password"  >
+              </mat-form-field>
+        </div>        
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button (click)="submit()">INGRESAR</button>
+    </mat-card-actions>
+  </mat-card>
