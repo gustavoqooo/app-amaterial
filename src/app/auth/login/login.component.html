@@ -7,16 +7,15 @@
         <div class="form">
             <mat-form-field>
                 <mat-label>Ingrese su Usuario</mat-label>
-                <input matInput type="text"  >
+                <input matInput type="text" #txtusuario  >
               </mat-form-field>
              <mat-form-field >
                 <mat-label>Ingrese su password</mat-label>
-                <input matInput type="password"  >
+                <input matInput type="password" #txtpassword >
               </mat-form-field>
         </div>        
     </mat-card-content>
-
     <mat-card-actions>
-      <button mat-raised-button (click)="submit()">INGRESAR</button>
+      <button mat-raised-button (click)="submit(txtusuario, txtpassword)">INGRESAR</button>
     </mat-card-actions>
   </mat-card>
