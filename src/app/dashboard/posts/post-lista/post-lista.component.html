@@ -1,3 +1,7 @@
+<button mat-raised-button color="primary"
+(click)="onNavigateCreatePost()"
+>Nuevo Post</button>
+
 <table mat-table [dataSource]="posts" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
@@ -28,7 +32,8 @@
     </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" 
+        (click)="onNavigatePostDetail(row.id)"></tr>
   </table>
   
   

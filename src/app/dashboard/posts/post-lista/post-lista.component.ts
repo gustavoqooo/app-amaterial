@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MaterialModule } from '../../../angular-material/material/material.module';
 import { PostService } from '../post.service';
 import { Post } from '../post';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 export interface PeriodicElement {
@@ -36,8 +37,9 @@ export class PostListaComponent {
   //dataSource = ELEMENT_DATA;
   posts: Post[] = []
 
-  constructor(private postService: PostService){
-
+  constructor(private postService: PostService,
+    private route: ActivatedRoute,
+    private router: Router){
   }
 
   ngOnInit(): void {
@@ -47,5 +49,12 @@ export class PostListaComponent {
       this.posts = data;
     })
   }
+  onNavigatePostDetail(postId: string): void {
+    this.router.navigate([postId], {relativeTo: this.route});
+  }
   
+  onNavigateCreatePost(): void{
+    this.router.navigate(['nuevo'], {relativeTo: this.route});
+  }
+
 }
