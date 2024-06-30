@@ -3,6 +3,7 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 import { ActivatedRoute } from '@angular/router';
 import { PostService } from '../post.service';
 import { MaterialModule } from '../../../angular-material/material/material.module';
+import { Post } from '../post';
 
 enum FormType{
   Crear = 0,
@@ -52,4 +53,30 @@ export class PostDetalleComponent {
         this.postForm.setValue({title, body, userId})
       })
   }
+  guardarPost():void{
+    if(this.formType === FormType.Crear){
+      this.registrarPost(this.postForm.value)
+    }else{
+      const postValue = {...this.postForm.value, id: this.postId }
+      this.actualizarPost(postValue)
+    }
+  }
+  registrarPost(post: Post){
+    this.postService.createPost(post)
+    .subscribe(
+      (data) => {
+        console.log(data);
+      }
+    )
+  }
+  actualizarPost(post: Post){
+    this.postService.updatePost(post)
+    .subscribe(
+      (data) => {
+        console.log(data);
+      }
+    )
+  }
+
+
 }
